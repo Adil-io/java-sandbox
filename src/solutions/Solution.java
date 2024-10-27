@@ -141,20 +141,26 @@ public class Solution {
 
     public static int[] topKFrequent(int[] nums, int k) {
         Map<Integer, Integer> hm = new HashMap<>();
-        for (int i = 0; i < nums.length; i++) {
-            hm.put(nums[i], hm.getOrDefault(nums[i], 0) + 1);
+        for (int num : nums) {
+            hm.put(num, hm.getOrDefault(num, 0) + 1);
         }
 
-        List<Integer> list = new ArrayList<>();
-        for (Map.Entry<Integer, Integer> entry : hm.entrySet()) {
-            if (entry.getValue() >= k) {
-                list.add(entry.getKey());
+        int[] topKArr = new int[k];
+        int i = 0;
+        while (k > 0) {
+            int maxValue = 0, maxKey = 0;
+            for (Map.Entry<Integer, Integer> entry : hm.entrySet()) {
+                if (entry.getValue() > maxValue) {
+                    maxValue = entry.getValue();
+                    maxKey = entry.getKey();
+                    topKArr[i] = entry.getKey();
+                }
             }
+            i++;
+            k--;
+            hm.remove(maxKey);
         }
-        if (list.isEmpty()) {
-            return nums;
-        }
-        return list.stream().mapToInt(Integer::intValue).toArray();
+        return topKArr;
     }
 
 }

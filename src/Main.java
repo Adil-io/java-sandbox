@@ -29,8 +29,8 @@ public class Main {
 //        String[] strs = new String[]{"act", "pots", "tops", "cat", "stop", "hat"};
 //        System.out.println(Solution.optimized_groupAnagrams(strs));
 
-        int[] nums = new int[]{7,7};
-        int k = 1;
+        int[] nums = new int[]{1,1,1,2,2,3};
+        int k = 2;
         System.out.println(Arrays.toString(Solution.topKFrequent(nums, k)));
 
     }
