@@ -163,4 +163,33 @@ public class Solution {
         return topKArr;
     }
 
+    public static String shortestPalindrome(String s) {
+        String shortestPalindrome = "";
+        for (int i = s.length() - 1; i >= 0; i--) {
+            char ch = s.charAt(i);
+            shortestPalindrome += ch;
+        }
+        if (s.equals(shortestPalindrome)) {
+            return shortestPalindrome;
+        }
+
+        // aaabcd -> dcbaaabcd
+        shortestPalindrome = "";
+        Stack<Character> stack = new Stack<>();
+        for (int i = s.length() - 1; i > 0; i--) {
+            char ch = s.charAt(i);
+            if (ch == s.charAt(i - 1)) {
+                stack.add(ch);
+                continue;
+            }
+
+            while (!stack.isEmpty()) {
+                shortestPalindrome += stack.pop();
+            }
+            shortestPalindrome += ch + "";
+        }
+
+        return shortestPalindrome + s;
+    }
+
 }

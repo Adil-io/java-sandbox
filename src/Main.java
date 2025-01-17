@@ -29,9 +29,12 @@ public class Main {
 //        String[] strs = new String[]{"act", "pots", "tops", "cat", "stop", "hat"};
 //        System.out.println(Solution.optimized_groupAnagrams(strs));
 
-        int[] nums = new int[]{1,1,1,2,2,3};
-        int k = 2;
-        System.out.println(Arrays.toString(Solution.topKFrequent(nums, k)));
+//        int[] nums = new int[]{1,1,1,2,2,3};
+//        int k = 2;
+//        System.out.println(Arrays.toString(Solution.topKFrequent(nums, k)));
+
+        String str = "baaabcd";
+        System.out.println(Solution.shortestPalindrome(str));
 
     }
 
